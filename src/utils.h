@@ -25,6 +25,10 @@
 #include <random>
 #include "system.h"
 
+#if defined(__riscos__)
+#define wstring basic_string<wchar_t>
+#endif
+
 namespace Utils {
 	/**
 	 * Converts a string to lower case.

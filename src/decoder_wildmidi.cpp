@@ -170,6 +170,19 @@ WildMidiDecoder::WildMidiDecoder(const std::string file_name) {
 		config_file = "wildmidi.cfg";
 		found = FileFinder::Exists(config_file);
 	}
+#elif __riscos__
+	config_file = "wildmidi.cfg";
+	found = FileFinder::Exists(config_file);
+
+	if (!found) {
+		config_file = "timidity.cfg";
+		found = FileFinder::Exists(config_file);
+	}
+
+	if (!found) {
+		config_file = "/Freepats:/timidity.cfg";
+		found = FileFinder::Exists(config_file);
+	}
 #else
 	// Prefer wildmidi in current directory
 	config_file = "wildmidi.cfg";

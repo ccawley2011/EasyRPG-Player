@@ -1,0 +1,2 @@
+Run <Obey$Dir>.!Boot
+Run <EasyRPG$Dir>.Player %*0

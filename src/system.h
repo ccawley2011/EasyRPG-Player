@@ -62,6 +62,10 @@
 #  include <sys/types.h>
 #endif
 
+#ifdef __riscos__
+#  include <stdint.h>
+#endif
+
 #define SUPPORT_BMP
 #define SUPPORT_PNG
 #define SUPPORT_XYZ

@@ -427,7 +427,7 @@ static void add_rtp_path(const std::string& p) {
 }
 
 static void read_rtp_registry(const std::string& company, const std::string& product, const std::string& key) {
-#if !(defined(GEKKO) || defined(SWITCH) || defined(__ANDROID__) || defined(EMSCRIPTEN) || defined(_3DS)) && !(defined(_WIN32) && defined(_ARM_))
+#if !(defined(GEKKO) || defined(SWITCH) || defined(__ANDROID__) || defined(EMSCRIPTEN) || defined(_3DS) || defined(__riscos__)) && !(defined(_WIN32) && defined(_ARM_))
 	std::string rtp_path = Registry::ReadStrValue(HKEY_CURRENT_USER, "Software\\" + company + "\\" + product, key, KEY32);
 	if (!rtp_path.empty()) {
 		add_rtp_path(rtp_path);
@@ -470,6 +470,8 @@ void FileFinder::InitRtpPaths(bool warn_no_rtp_found) {
 	add_rtp_path("sdmc:/data/rtp/" + version_str + "/");
 #elif defined(PSP2)
 	add_rtp_path("ux0:/data/easyrpg-player/rtp/" + version_str + "/");
+#elif defined(__riscos__)
+	add_rtp_path("/<EasyRPG$Dir>/rtp/" + version_str + "/");
 #elif defined(__ANDROID__)
 	// Invoke "String getRtpPath()" in EasyRPG Activity via JNI
 	JNIEnv* env = (JNIEnv*)SDL_AndroidGetJNIEnv();

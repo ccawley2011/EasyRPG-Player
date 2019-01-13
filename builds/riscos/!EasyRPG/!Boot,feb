@@ -1,0 +1,8 @@
+Set EasyRPG$Dir <Obey$Dir>
+IconSprites <EasyRPG$Dir>.!Sprites
+
+Set EasyRPG$Title "EasyRPG Player"
+Set EasyRPG$Description "Play your RPG Maker 2000/2003 games everywhere"
+Set EasyRPG$Publisher "EasyRPG Team"
+Set EasyRPG$Web "https://easyrpg.org/player/"
+Set EasyRPG$Version "0.5.4"
